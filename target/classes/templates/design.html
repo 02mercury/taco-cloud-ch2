@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+  <title>Tacos Cloud</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Montserrat, sans-serif;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    .ingredient-group {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    button {
+      background-color: #2196F3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0b7dda;
+    }
+
+    .logo {
+      padding: 1rem;
+      border-bottom: 2px solid #000;
+    }
+    .logo img {
+      height: 5rem;
+    }
+
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3rem;
+      background-color: #0b7dda;
+      color: #fff;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input[type=text] {
+      width: 75%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: 0.8rem;
+      border: 2px solid ;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="logo">
+  <img th:src="@{/images/TacosLogo.png}" alt="Logo Taco Cloud">
+</div>
+
+<h1>Design your taco!</h1>
+
+<form method="POST" th:object="${taco}">
+  <div class="grid">
+    <!-- end::formTag[] -->
+    <!-- end::head[] -->
+    <div class="ingredient-group" id="wraps">
+      <!-- tag::designateWrap[] -->
+      <h3>Designate your wrap:</h3>
+      <div th:each="ingredient : ${wrap}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      <!-- end::designateWrap[] -->
+    </div>
+
+    <div class="ingredient-group" id="proteins">
+      <h3>Pick your protein:</h3>
+      <div th:each="ingredient : ${protein}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+    </div>
+
+    <div class="ingredient-group" id="cheeses">
+      <h3>Choose your cheese:</h3>
+      <div th:each="ingredient : ${cheese}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+    </div>
+
+    <div class="ingredient-group" id="veggies">
+      <h3>Determine your veggies:</h3>
+      <div th:each="ingredient : ${veggies}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+    </div>
+
+    <div class="ingredient-group" id="sauces">
+      <h3>Select your sauce:</h3>
+      <div th:each="ingredient : ${sauce}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+
+    <h3>Name your taco creation:</h3>
+    <input type="text" th:field="*{name}"/>
+
+    <br/>
+
+    <button>Submit your taco</button>
+  </div>
+  <!-- tag::closeFormTag[] -->
+</form>
+
+<div class="footer">
+  <p>&copy; Bodiu Dumitru, 2023 Tacos Cloud</p>
+</div>
+</body>
+</html>

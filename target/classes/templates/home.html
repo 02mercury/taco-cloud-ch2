@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tacos Cloud</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo {
+            padding: 1rem;
+            border-bottom: 2px solid #000;
+        }
+        .logo img {
+            height: 5rem;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 3rem;
+            background-color: #00bfff;
+            color: #fff;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="logo">
+            <img th:src="@{/images/TacosLogo.png}" alt="Logo Taco Cloud">
+        </div>
+        <main>
+            <h1>Bun venit la Tacos Cloud!</h1>
+            <p>
+                Salut! Bine ai venit la Tacos Cloud,
+                magazinul nostru electronic specializat
+                în pregătirea și livrarea de tacos delicioși.
+                Folosim tehnologia Spring Boot MVC pentru a
+                crea o experiență de cumpărare plăcută și eficientă.
+                Alege dintr-o varietate de ingrediente și combinații
+                pentru a-ți personaliza taco-ul perfect, apoi așteaptă
+                să ajungă la ușa ta.
+            </p>
+
+        </main>
+        <div class="footer">
+            <p>&copy; Bodiu Dumitru, 2023 Tacos Cloud</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
